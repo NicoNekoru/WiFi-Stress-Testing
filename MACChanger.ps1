@@ -40,6 +40,10 @@ if (!($MAC.length -eq 12)){echo "Invalid input: Follow the format"; rv MAC}
 } while(!($MAC))
 }
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}\0011" /v NetworkAddress /d $MAC /f >$null
+<#
+Replace this REG command with the path of YOUR NIC card that you can find in your getmac /v 
+command under the "Transport Name" label of "Connection Name" Wi-Fi or whatever you want to change
+#>
 netsh interface set interface Wi-Fi enable
 echo "Operation Successful"
 echo "$MAC is your new MAC address"
